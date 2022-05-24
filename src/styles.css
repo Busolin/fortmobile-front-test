@@ -1,1 +1,33 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --label-color: #999999;
+  --input-color: #efeeed;
+  --input-focus-color: #555555;
+  --input-border: #dbdbdb;
+  --button-color: #ffffff;
+  --button-bg: #40c8f4;
+  --button-hover: 0.7;
+  --button-disabled: #dddcdc;
+  --button-disabled-bg: #f6f6f6;
+}
+
+/* Reset CSS  */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
