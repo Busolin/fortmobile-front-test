@@ -7,9 +7,6 @@ Aplicação de cadastro de usuário em localStorage, podendo listar esses usuár
 Passo a passo de como rodar
 
 ```bash
-Para instalar dependências
-  npm install
-
 Para executar o servidor local
   ng serve
 
