@@ -22,7 +22,7 @@ export class ListaUsers implements OnInit {
   }
 
   deleteUsers(user, i) {
-    const choice = confirm("Deseja deletar todods?");
+    const choice = confirm("Deseja deletar todos?");
 
     if (choice) {
       localStorage.removeItem("BD");
