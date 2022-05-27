@@ -1,35 +1,38 @@
 <div class="container">
-  <div class="table-container">
+  <div *ngIf="users?.length == 0">
+    <h2>Não há nenhum usuário cadastrado ainda!</h2>
+  </div>
+
+  <div class="table-container" *ngIf="users?.length > 0">
     <table class="table">
       <caption>
         Usuários
       </caption>
       <thead>
         <tr>
+          <th>Index</th>
           <th>Nome Completo</th>
           <th>Email</th>
           <th>CPF</th>
           <th>Telefone</th>
-          <th></th>
+          <th>Ações</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>Victor S Busolin</td>
-          <td>victorbusolin@gmail.com</td>
-          <td>xxx.xxx.xxx-xx</td>
-          <td>16997232195</td>
+        <tr *ngFor="let user of users; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ user.nomeCompleto }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.cpf }}</td>
+          <td>{{ user.telefone }}</td>
           <td>
-            <button class="delete-button">DEL</button>
-          </td>
-        </tr>
-        <tr>
-          <td>Victor S Busolin Junior</td>
-          <td>victorbusolin@gmail.com.br</td>
-          <td>xxx.xxx.xxx-xx</td>
-          <td>18997232195</td>
-          <td>
-            <button class="delete-button">DEL</button>
+            <button
+              class="delete-button"
+              type="button"
+              (click)="deleteUser(user, i)"
+            >
+              DEL
+            </button>
           </td>
         </tr>
       </tbody>

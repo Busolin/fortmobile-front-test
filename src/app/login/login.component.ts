@@ -12,6 +12,7 @@ export class LoginComponent implements OnInit {
   formulario: any;
 
   ngOnInit(): void {
+    this.ExibirProdutos();
     this.formulario = new FormGroup({
       userId: new FormControl(),
       nomeCompleto: new FormControl(),
