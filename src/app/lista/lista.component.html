@@ -26,18 +26,21 @@
           <td>{{ user.cpf }}</td>
           <td>{{ user.telefone }}</td>
           <td>
-            <button
-              class="delete-button"
-              type="button"
-              (click)="deleteUser(user, i)"
-            >
-              DEL
-            </button>
+            <button class="delete-button" type="button" disabled>DEL</button>
           </td>
         </tr>
       </tbody>
     </table>
   </div>
+
+  <button
+    class="delete-all-button"
+    type="button"
+    (click)="deleteUsers(user, i)"
+    *ngIf="users?.length > 0"
+  >
+    Deletar todos
+  </button>
 
   <p>Retorne a página de cadastro <a [routerLink]="['']">aqui!</a></p>
 </div>

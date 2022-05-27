@@ -5,6 +5,7 @@
       class="formLogin"
       [formGroup]="formulario"
       (ngSubmit)="CadastrarUser()"
+      #formDir="ngForm"
     >
       <label class="label-login" for="nome">Nome Completo</label>
       <input
@@ -47,9 +48,11 @@
       />
 
       <div class="bottom-form-container">
-        <button class="button" type="submit">Cadastrar</button>
+        <button [disabled]="formulario.invalid" class="button" type="submit">
+          Cadastrar
+        </button>
         <a [routerLink]="['./users']"
-          ><span class="button-login">Login &#10142;</span></a
+          ><span class="button-login">Usuários &#10142;</span></a
         >
       </div>
     </form>

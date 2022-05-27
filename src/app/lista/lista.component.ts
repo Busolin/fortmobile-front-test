@@ -1,6 +1,5 @@
 import { Component, OnInit } from "@angular/core";
 import { User } from "../User";
-import { LoginComponent } from "../login/login.component";
 
 @Component({
   selector: "lista-users",
@@ -22,8 +21,12 @@ export class ListaUsers implements OnInit {
     }
   }
 
-  deleteUser(user, i) {
-    const index = this.users.indexOf(user);
-    console.log(user, i);
+  deleteUsers(user, i) {
+    const choice = confirm("Deseja deletar todods?");
+
+    if (choice) {
+      localStorage.removeItem("BD");
+      document.location.reload();
+    }
   }
 }

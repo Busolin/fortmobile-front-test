@@ -31,7 +31,7 @@ td {
 }
 
 .table-container {
-  display: block;
+  max-width: 100%;
   overflow-x: auto;
 }
 
@@ -48,8 +48,27 @@ td {
   transition: 0.2s;
 }
 
-.delete-button:hover {
+.delete-button:disabled {
+  background-color: #70121b;
+  cursor: not-allowed;
+}
+
+/* .delete-button:hover {
   background-color: #f9495b;
+} */
+
+.delete-all-button {
+  background-color: #f9495b;
+  padding: 1rem 2rem;
+
+  cursor: pointer;
+  border: none;
+  border-radius: 0.25rem;
+
+  background-color: #dc3545;
+  color: white;
+
+  transition: 0.2s;
 }
 
 p {
@@ -66,4 +85,10 @@ p a {
 p a:hover {
   color: #000000;
   border-color: #000000;
+}
+
+@media (max-width: 900px) {
+  h2 {
+    text-align: center;
+  }
 }

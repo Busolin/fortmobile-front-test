@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { User } from "../User";
-import { FormGroup, FormControl } from "@angular/forms";
+import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { Guid } from "guid-typescript";
 @Component({
   selector: "app-login",
@@ -9,16 +9,29 @@ import { Guid } from "guid-typescript";
 })
 export class LoginComponent implements OnInit {
   users: User[];
-  formulario: any;
+  formulario!: FormGroup;
 
   ngOnInit(): void {
+    const regExCPF =
+      "([0-9]{2}[.]?[0-9]{3}[.]?[0-9]{3}[/]?[0-9]{4}[-]?[0-9]{2})|([0-9]{3}[.]?[0-9]{3}[.]?[0-9]{3}[-]?[0-9]{2})";
+    const regExCelular = "^([0|+[0-9]{1,5})?([0-9]{10})$";
+
     this.ExibirProdutos();
     this.formulario = new FormGroup({
       userId: new FormControl(),
-      nomeCompleto: new FormControl(),
-      email: new FormControl(),
-      cpf: new FormControl(),
-      telefone: new FormControl(),
+      nomeCompleto: new FormControl("", [
+        Validators.required,
+        Validators.minLength(3),
+      ]),
+      email: new FormControl("", [Validators.required, Validators.email]),
+      cpf: new FormControl("", [
+        Validators.required,
+        Validators.pattern(regExCPF),
+      ]),
+      telefone: new FormControl("", [
+        Validators.required,
+        Validators.pattern(regExCelular),
+      ]),
     });
   }
 
